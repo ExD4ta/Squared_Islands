@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 4a8d5c1de1474b54e8c229f9419d8bcc
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Fake Hope
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e332e12b3b15bfe4f9c9ce7c67cc1f4e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
