@@ -6,6 +6,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Jobs;
 using UnityEngine.SceneManagement;
+using UnityEngine.Timeline;
 using UnityEngine.UIElements;
 
 public class movimento : MonoBehaviour
@@ -16,6 +17,7 @@ public class movimento : MonoBehaviour
     public Rigidbody body;
     public float rotazione = 0f;
     public bool DoRotate = false;
+    private bool unlock = true;
     void OnCollisionEnter(Collision collidingObject)
     {
         if (collidingObject.gameObject.tag == "Terrain")
@@ -27,6 +29,15 @@ public class movimento : MonoBehaviour
     void Start()
     {
         link = GameObject.Find("Text (TMP)");
+    }
+
+    public void disableControls()
+    {
+        unlock = false;
+    }
+    public void enableControls()
+    {
+        unlock = true;
     }
 
     // Update is called once per frame
@@ -61,13 +72,13 @@ public class movimento : MonoBehaviour
         }
         if (Input.GetKey("d"))
         {
-            if (body.isKinematic && canDash)
+            if (body.isKinematic && canDash && unlock)
             {
                 canDash = false;
                 body.isKinematic = false;
                 GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(1.5f* Mathf.Abs(rotazione), 400f, 0f), new Vector3(transform.position.x-1, transform.position.y, transform.position.z));
             }
-            else if(!(body.isKinematic)&& canDash)
+            else if(!(body.isKinematic)&& canDash && unlock)
             {
                 transform.position = transform.position + (new Vector3(6f, 0, 0) * Time.deltaTime);
             }
@@ -75,23 +86,23 @@ public class movimento : MonoBehaviour
         }
         if (Input.GetKey("a"))
         {
-            if (body.isKinematic && canDash)
+            if (body.isKinematic && canDash && unlock)
             {
                 canDash = false;
                 body.isKinematic=false;
                 GetComponent<Rigidbody>().AddForceAtPosition(new Vector3(-1.5f * Mathf.Abs(rotazione), 400f, 0f), new Vector3(transform.position.x+1, transform.position.y, transform.position.z));
             }
-            else if (!(body.isKinematic) && canDash)
+            else if (!(body.isKinematic) && canDash && unlock)
             {
                 transform.position = transform.position + (new Vector3(-6f, 0, 0) * Time.deltaTime);
             }
         }
-        if (Input.GetKey("e") && rotazione < 1000 && rotazione > -1000 && canDash)
+        if (Input.GetKey("e") && rotazione < 1000 && rotazione > -1000 && canDash && unlock)
         {
             DoRotate = true;
             rotazione -= (1500f * Time.deltaTime);
         }
-        if (Input.GetKey("q") && rotazione < 1000 && rotazione > -1000 && canDash)
+        if (Input.GetKey("q") && rotazione < 1000 && rotazione > -1000 && canDash && unlock)
         {
             DoRotate = true;
             rotazione += (1500f* Time.deltaTime);

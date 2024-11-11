@@ -6,11 +6,19 @@ public class salto : MonoBehaviour
     
 {
     bool canJump = true;
-
+    bool unlock = true;
+    public void disableJump()
+    {
+        unlock = false;
+    }
+    public void enableJump()
+    {
+        unlock = true;
+    }
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && unlock)
         {
             jump();
         }
@@ -28,7 +36,7 @@ public class salto : MonoBehaviour
 
     void OnCollisionEnter(Collision collidingObject)
     {
-        if (collidingObject.gameObject.tag == "Terrain")
+        if (collidingObject.gameObject.tag == "Terrain" && unlock)
         {
             canJump = true;
         }

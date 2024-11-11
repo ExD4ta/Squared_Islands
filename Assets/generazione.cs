@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -24,11 +23,11 @@ public class generazione : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        backroundMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         cannone.tag = "Terrain";
         piattaforma.tag = "Terrain";
         int i = 0;
-        while (i != 2000)
+        while (i != 2)
         {
 
             if (Random.Range(0f, 1f) > 0.6f)
@@ -67,9 +66,9 @@ public class generazione : MonoBehaviour
             if (Random.Range(0f, 1f) > 0.3f)
             {
                 backroundScale = Random.Range(1, 3);
-                backroundRef = Instantiate(backround, new Vector3((((i + 1) * 4.25f) + Random.Range(3f, 6f)), transform.position.y + Random.Range(-4f, 8f), transform.position.z + Random.Range(4f, 20f)), transform.localRotation);
+                backroundRef = Instantiate(backround, new Vector3((((i + 1) * 4.25f) + Random.Range(3f, 6f)), transform.position.y + Random.Range(-4f, 8f), transform.position.z + Random.Range(8f, 24f)), transform.localRotation);
                 backroundRef.transform.localScale = new Vector3(backroundRef.transform.localScale.x * backroundScale, backroundRef.transform.localScale.y * backroundScale, backroundRef.transform.localScale.z* backroundScale);
-                backroundRef.GetComponent<MeshRenderer>().material = backroundMaterial;
+                backroundRef.GetComponent<Renderer>().material = backroundMaterial;
             }
             i++;
         }
@@ -82,6 +81,6 @@ public class generazione : MonoBehaviour
     void Update()
 
     {
-        
+
     }
 }
