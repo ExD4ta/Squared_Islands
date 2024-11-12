@@ -6,6 +6,7 @@ using UnityEngine;
 public class scriptCannone : MonoBehaviour
 {
     private GameObject player;
+    private GameObject transition_image;
     private bool scaletrigger = false;
 
     public void disableScaleTrigger()
@@ -20,6 +21,7 @@ public class scriptCannone : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("player");
+        transition_image = GameObject.Find("RawImage");
     }
 
     // Update is called once per frame
@@ -28,6 +30,7 @@ public class scriptCannone : MonoBehaviour
         if (scaletrigger && player.transform.localScale.x > 0.05f)
         {
             player.transform.localScale -= new Vector3(0.002f, 0.002f, 0.002f);
+            transition_image.GetComponent<transition>().TransitionStart();
         }
     }
 
@@ -36,5 +39,6 @@ public class scriptCannone : MonoBehaviour
         enableScaleTrigger();
         player.GetComponent<movimento>().disableControls();
         player.GetComponent<salto>().disableJump();
+
     }
 }

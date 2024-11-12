@@ -430,6 +430,7 @@
 "Assets/TextMesh Pro/Examples & Extras/Scripts/VertexZoom.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/WarpTextExample.cs"
 "Assets/TitleScreenAnimation.cs"
+"Assets/transition.cs"
 -langversion:9.0
 /deterministic
 /optimize+

@@ -20,9 +20,14 @@ public class generazione : MonoBehaviour
     private GameObject backroundRef;
     public Material backroundMaterial;
     private float backroundScale;
+    [SerializeField] GameObject bordi_cannone;
     // Start is called before the first frame update
     void Start()
     {
+        
+        
+        
+        bordi_cannone.transform.localScale = new Vector3(122, 112, 115); 
         backroundMaterial.color = new Color(Random.Range(0f, 1f), Random.Range(0f, 1f), Random.Range(0f, 1f));
         cannone.tag = "Terrain";
         piattaforma.tag = "Terrain";
@@ -72,8 +77,10 @@ public class generazione : MonoBehaviour
             }
             i++;
         }
+        
         Instantiate(trigger, new Vector3((i + 1) * 4.25f, transform.position.y +0.35f, transform.position.z), transform.localRotation).AddComponent<scriptCannone>().AddComponent<BoxCollider>().isTrigger = true;
         Instantiate(cannone, new Vector3((i + 1) * 4.25f, transform.position.y, transform.position.z), transform.localRotation).AddComponent<MeshCollider>();
+        Instantiate(bordi_cannone, new Vector3((i + 1) * 4.25f, transform.position.y + 1.05f, transform.position.z), transform.localRotation).AddComponent<MeshCollider>();
         Instantiate(bordi, new Vector3(((i + 1) * 4.25f) + 2.9f, transform.position.y, transform.position.z), transform.localRotation);
         Instantiate(bordi, new Vector3(((i + 1) * 4.25f) - 2.9f, transform.position.y, transform.position.z), Quaternion.Euler(new Vector3(-90f, 180f, 0f)));
     }

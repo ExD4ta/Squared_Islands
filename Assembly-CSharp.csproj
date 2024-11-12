@@ -110,6 +110,7 @@
     <Compile Include="Assets\salto.cs" />
     <Compile Include="Assets\MONETA.cs" />
     <Compile Include="Assets\menu.cs" />
+    <Compile Include="Assets\transition.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\DemoChat\IgnoreUiRaycastWhenInactive.cs" />
     <Compile Include="Assets\Photon\PhotonChat\Demos\Common\EventSystemSpawner.cs" />
