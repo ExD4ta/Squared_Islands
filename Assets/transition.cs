@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class transition : MonoBehaviour
 {
@@ -16,11 +18,12 @@ public class transition : MonoBehaviour
     {
         if (start && transform.position.y < 2000f)
         {
-            transform.position += new Vector3(0f,3f,0f);
+            transform.position += new Vector3(0f, 2000f * Time.deltaTime, 0f);
         }
-        else
+        else if (start && transform.position.y > 2000f)
         {
             TransitionStop();
+            SceneManager.LoadScene("ui");
         }
     }
 

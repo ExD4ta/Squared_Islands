@@ -374,6 +374,7 @@
 -analyzer:"E:/2022.3.51f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/camera.cs"
 "Assets/generazione.cs"
+"Assets/HoverAnimation.cs"
 "Assets/menu.cs"
 "Assets/MONETA.cs"
 "Assets/movimento.cs"
